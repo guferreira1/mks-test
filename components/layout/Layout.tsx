@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { ReactNode } from "react";
 import Footer from "../footer/FooterComponent";
 import HeaderComponent from "../header/HeaderComponent";
@@ -9,11 +10,16 @@ interface iLayoutProps {
 
 const Layout = ({ children }: iLayoutProps) => {
   return (
-    <Container>
-      <HeaderComponent />
-      <MainContainer>{children}</MainContainer>
-      <Footer />
-    </Container>
+    <>
+      <Head>
+        <title>MKS Sistemas</title>
+      </Head>
+      <Container>
+        <HeaderComponent />
+        <MainContainer>{children}</MainContainer>
+        <Footer />
+      </Container>
+    </>
   );
 };
 
