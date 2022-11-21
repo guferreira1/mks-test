@@ -15,8 +15,6 @@ export const fetchProducts = createAsyncThunk(
 
     const products: Product[] = data.products;
 
-    // products.push(data.products);
-
     return products;
   }
 );

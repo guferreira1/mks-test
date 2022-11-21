@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { FiShoppingBag } from "react-icons/fi";
-import { Product } from "../../types/productTypes";
 
 import { CardContainer } from "./Card-Styles";
 import { addProductToCart } from "../../store/toolkit/cart/cart.slice";
