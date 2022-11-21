@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Footer from "../footer/FooterComponent";
 import HeaderComponent from "../header/HeaderComponent";
-import { Container, MainContainer } from "./LeyoutStyles";
+import { Container, MainContainer } from "./LayoutStyles";
 
 interface iLayoutProps {
   children: ReactNode;
