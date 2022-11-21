@@ -1,48 +1,30 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { FiShoppingBag } from "react-icons/fi";
+import { Product } from "../../types/productTypes";
 
-import { CardContainer } from "./CardStyles";
-
-interface iProducts {
-  id: number;
-  name: string;
-  brand: string;
-  description: string;
-  photo: string;
-  price: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import { CardContainer } from "./Card-Styles";
+import { addProductToCart } from "../../store/toolkit/cart/cart.slice";
+import useAppSelector from "../../hooks/redux.hooks";
+import { fetchProducts } from "../../store/toolkit/product/product.slice";
 
 const CardComponent = () => {
-  const [isProduct, setIsProduct] = useState<iProducts[]>(
-    []
+  const { products, isLoading } = useAppSelector(
+    (state) => state.productReducer
   );
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getProducts();
+    dispatch(fetchProducts() as any);
   }, []);
-
-  const getProducts = async () => {
-    try {
-      const res = await fetch(
-        "https://mks-frontend-challenge-api.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC"
-      );
-
-      const data = await res.json();
-
-      setIsProduct(data.products);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <>
       <CardContainer>
         <ul>
-          {isProduct.map((product) => (
+          {products.map((product) => (
             <li key={product.id}>
               <Image
                 src={product.photo}
@@ -65,7 +47,11 @@ const CardComponent = () => {
                 </div>
               </div>
               <p>{product.description}</p>
-              <button>
+              <button
+                onClick={() =>
+                  dispatch(addProductToCart(product))
+                }
+              >
                 <FiShoppingBag />
                 COMPRAR
               </button>
