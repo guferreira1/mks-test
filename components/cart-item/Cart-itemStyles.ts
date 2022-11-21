@@ -37,7 +37,8 @@ export const CartItemInfo = styled.div`
     gap: 40px;
     width: 90%;
 
-    p {
+    .quantity {
+      color: ${Colors.black};
       font-size: 0.9375rem;
       font-weight: 500;
     }
