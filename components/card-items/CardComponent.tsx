@@ -43,36 +43,33 @@ const CardComponent = () => {
       <CardContainer>
         <ul>
           {isProduct.map((product) => (
-            <>
-              <li key={product.id}>
-                {" "}
-                <Image
-                  src={product.photo}
-                  alt={product.name}
-                  width="127"
-                  height="158"
-                />
-                <div className="itemInfo">
-                  <div className="itemName">
-                    <h2>{product.name}</h2>
-                  </div>
-                  <div className="itemPrice">
-                    <span>
-                      R${" "}
-                      {Number(product.price)
-                        .toFixed(2)
-                        .toString()
-                        .replace(".", ",")}
-                    </span>
-                  </div>
+            <li key={product.id}>
+              <Image
+                src={product.photo}
+                alt={product.name}
+                width="127"
+                height="158"
+              />
+              <div className="itemInfo">
+                <div className="itemName">
+                  <h2>{product.name}</h2>
                 </div>
-                <p>{product.description}</p>
-                <button>
-                  <FiShoppingBag />
-                  COMPRAR
-                </button>
-              </li>
-            </>
+                <div className="itemPrice">
+                  <span>
+                    R${" "}
+                    {Number(product.price)
+                      .toFixed(2)
+                      .toString()
+                      .replace(".", ",")}
+                  </span>
+                </div>
+              </div>
+              <p>{product.description}</p>
+              <button>
+                <FiShoppingBag />
+                COMPRAR
+              </button>
+            </li>
           ))}
         </ul>
       </CardContainer>

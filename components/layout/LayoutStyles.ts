@@ -11,6 +11,5 @@ export const Container = styled.div`
 `;
 
 export const MainContainer = styled.div`
-  /* min-height: 90vh; */
-  /* background-color: ${Colors.gray2}; */
+  min-height: 90vh;
 `;
