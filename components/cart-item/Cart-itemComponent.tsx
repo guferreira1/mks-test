@@ -64,7 +64,7 @@ const CartItemComponent = ({ product }: CartItemProps) => {
               size={20}
               onClick={handleDecreaseClick}
             />
-            <p>{product.quantity}</p>
+            <p className="quantity">{product.quantity}</p>
             <AiOutlinePlus
               size={20}
               onClick={handleIncreaseClick}
