@@ -43,7 +43,10 @@ const CartItemComponent = ({ product }: CartItemProps) => {
 
   return (
     <CartItemContainer>
-      <RemoveButton onClick={handleRemoveItem}>
+      <RemoveButton
+        onClick={handleRemoveItem}
+        aria-label={`Remove ${product.name}`}
+      >
         <AiOutlineClose size={25} />
       </RemoveButton>
       <div>
@@ -52,6 +55,7 @@ const CartItemComponent = ({ product }: CartItemProps) => {
           alt={product.name}
           width="80"
           height="95"
+          aria-label={`${product.name}`}
         />
       </div>
 
@@ -71,7 +75,7 @@ const CartItemComponent = ({ product }: CartItemProps) => {
             />
           </CartItemQuantity>
           <div className="price">
-            <p>
+            <p aria-label={`${product.price}`}>
               R${" "}
               {Number(product.price)
                 .toFixed(2)
