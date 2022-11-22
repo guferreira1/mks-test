@@ -49,9 +49,7 @@ const CardComponent = () => {
                   </span>
                 </div>
               </div>
-              <p aria-label={`${product.description}`}>
-                {product.description}
-              </p>
+              <p>{product.description}</p>
               <button
                 onClick={() =>
                   dispatch(addProductToCart(product))
