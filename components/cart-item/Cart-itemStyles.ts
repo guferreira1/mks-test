@@ -26,6 +26,7 @@ export const CartItemInfo = styled.div`
   margin-left: 20px;
 
   p:nth-child(1) {
+    color: ${Colors.black};
     font-weight: 600;
     margin-bottom: 5px;
   }
