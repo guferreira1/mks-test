@@ -30,12 +30,16 @@ const CardComponent = () => {
                 alt={product.name}
                 width="127"
                 height="158"
+                aria-label={`${product.name}`}
               />
               <div className="itemInfo">
                 <div className="itemName">
                   <h2>{product.name}</h2>
                 </div>
-                <div className="itemPrice">
+                <div
+                  className="itemPrice"
+                  aria-label={`${product.price}`}
+                >
                   <span>
                     R${" "}
                     {Number(product.price)
@@ -45,7 +49,9 @@ const CardComponent = () => {
                   </span>
                 </div>
               </div>
-              <p>{product.description}</p>
+              <p aria-label={`${product.description}`}>
+                {product.description}
+              </p>
               <button
                 onClick={() =>
                   dispatch(addProductToCart(product))
