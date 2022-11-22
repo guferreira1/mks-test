@@ -5,35 +5,19 @@ import { FiShoppingBag } from "react-icons/fi";
 
 import { CardContainer } from "./Card-Styles";
 import { addProductToCart } from "../../store/toolkit/cart/cart.slice";
-import UseAppSelector from "../../hooks/redux.hooks";
+import useAppSelector from "../../hooks/redux.hooks";
 import { fetchProducts } from "../../store/toolkit/product/product.slice";
-import { Product } from "../../types/productTypes";
 
-export const getStaticProps = () => {
-  const { products } = UseAppSelector(
+const CardComponent = () => {
+  const { products, isLoading } = useAppSelector(
     (state) => state.productReducer
   );
-  const res = products;
 
-  return {
-    props: {
-      products: res,
-    },
-  };
-};
-
-interface CardComponentProps {
-  products: Product[];
-}
-
-const CardComponent = ({
-  products,
-}: CardComponentProps) => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(fetchProducts() as any);
-  // }, []);
+  useEffect(() => {
+    dispatch(fetchProducts() as any);
+  }, []);
 
   return (
     <>
