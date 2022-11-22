@@ -8,7 +8,7 @@ export const fetchProducts = createAsyncThunk(
   "products/fetch",
   async () => {
     const getProducts = await fetch(
-      "https://mks-frontend-challenge-api.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC"
+      "https://mks-frontend-challenge-api.herokuapp.com/api/v1/products?page=2&rows=8&sortBy=id&orderBy=DESC"
     );
 
     const data = await getProducts.json();
