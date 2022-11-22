@@ -1,24 +1,39 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { FiShoppingBag } from "react-icons/fi";
-import { Product } from "../../types/productTypes";
 
 import { CardContainer } from "./Card-Styles";
 import { addProductToCart } from "../../store/toolkit/cart/cart.slice";
-import useAppSelector from "../../hooks/redux.hooks";
+import UseAppSelector from "../../hooks/redux.hooks";
 import { fetchProducts } from "../../store/toolkit/product/product.slice";
+import { Product } from "../../types/productTypes";
 
-const CardComponent = () => {
-  const { products, isLoading } = useAppSelector(
+export const getStaticProps = () => {
+  const { products } = UseAppSelector(
     (state) => state.productReducer
   );
+  const res = products;
 
+  return {
+    props: {
+      products: res,
+    },
+  };
+};
+
+interface CardComponentProps {
+  products: Product[];
+}
+
+const CardComponent = ({
+  products,
+}: CardComponentProps) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchProducts() as any);
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchProducts() as any);
+  // }, []);
 
   return (
     <>
