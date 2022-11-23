@@ -40,38 +40,47 @@ const CartComponent = () => {
       <CartEscapeArea onClick={handleEscapeAreaClick} />
 
       <CartContent>
-        <div className="headerCart">
-          <p>Seu Carrinho</p>
-          <div
-            className="closeCart"
-            onClick={handleEscapeAreaClick}
-          >
-            <AiOutlineClose size={25} />
+        <div>
+          <div className="headerCart">
+            <p>Seu Carrinho</p>
+            <div
+              className="closeCart"
+              onClick={handleEscapeAreaClick}
+            >
+              <AiOutlineClose size={25} />
+            </div>
           </div>
+
+          {products.map((product) => (
+            <CartItemComponent
+              key={product.id}
+              product={product}
+            />
+          ))}
         </div>
 
-        {products.map((product) => (
-          <CartItemComponent
-            key={product.id}
-            product={product}
-          />
-        ))}
+        <div>
+          <div className="separatePrice">
+            {productsCount > 0 && (
+              <>
+                <p>Total:</p>
+                <span>
+                  R${" "}
+                  {productsTotalPrice
+                    .toFixed(2)
+                    .toString()
+                    .replace(".", ",")}
+                </span>
+              </>
+            )}
+          </div>
 
-        {productsCount > 0 && (
-          <p>
-            Total:{" "}
-            {productsTotalPrice
-              .toFixed(2)
-              .toString()
-              .replace(".", ",")}
-          </p>
-        )}
-
-        {productsCount > 0 && (
-          <button className="finishButton">
-            Finalizar Compra
-          </button>
-        )}
+          {productsCount > 0 && (
+            <button className="finishButton">
+              Finalizar Compra
+            </button>
+          )}
+        </div>
 
         {productsCount === 0 && (
           <p>Seu carrinho está vazio!</p>

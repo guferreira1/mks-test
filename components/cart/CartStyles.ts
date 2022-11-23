@@ -30,6 +30,9 @@ export const CartEscapeArea = styled.div`
 `;
 
 export const CartContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   min-width: 500px;
   z-index: 200;
@@ -39,13 +42,6 @@ export const CartContent = styled.div`
 
   @media (max-width: 768px) {
     min-width: 280px;
-  }
-
-  p {
-    color: ${Colors.text.white};
-    font-weight: 600;
-    font-size: 1.125rem;
-    margin-bottom: 15px;
   }
 
   .finishButton {
@@ -96,6 +92,27 @@ export const CartContent = styled.div`
       :hover {
         background-color: ${Colors.gray1};
       }
+    }
+  }
+
+  .separatePrice {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 35px;
+
+    p {
+      color: ${Colors.text.white};
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin-bottom: 15px;
+    }
+
+    span {
+      color: ${Colors.text.white};
+      font-weight: 600;
+      font-size: 1.125rem;
+      margin-bottom: 15px;
     }
   }
 `;

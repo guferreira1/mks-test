@@ -5,8 +5,8 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  margin-bottom: 50px;
+  width: 80%;
+  margin: 20px auto;
 
   ul {
     display: flex;
@@ -32,6 +32,14 @@ export const CardContainer = styled.div`
       background-color: ${Colors.text.white};
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
       border-radius: 8px;
+
+      @media (min-width: 500px) {
+        width: 220px;
+      }
+
+      @media (min-width: 800px) {
+        width: 250px;
+      }
 
       img {
         align-self: center;
@@ -68,6 +76,14 @@ export const CardContainer = styled.div`
             line-height: 0.9375rem;
             font-weight: 700;
             color: ${Colors.text.white};
+
+            @media (min-width: 500px) {
+              font-size: 0.75rem;
+            }
+
+            @media (min-width: 800px) {
+              font-size: 0.9375rem;
+            }
           }
         }
       }
