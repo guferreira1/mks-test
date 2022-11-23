@@ -13,6 +13,12 @@ export const CartItemContainer = styled.div`
   background-color: ${Colors.text.white};
   border-radius: 8px;
 
+  @media (min-width: 1000px) {
+    flex-direction: row;
+    width: 400px;
+    height: 100px;
+  }
+
   p {
     color: ${Colors.black};
   }
@@ -29,6 +35,10 @@ export const CartItemInfo = styled.div`
     color: ${Colors.black};
     font-weight: 600;
     margin-bottom: 5px;
+  }
+
+  @media (min-width: 1000px) {
+    align-items: flex-start;
   }
 
   .cartPrice {
@@ -83,6 +93,16 @@ export const RemoveButton = styled.div`
   justify-content: flex-end;
   width: 100%;
   margin-right: 10px;
+
+  @media (min-width: 1000px) {
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: ${Colors.black};
+    color: ${Colors.text.white};
+  }
 
   &:hover {
     cursor: pointer;
